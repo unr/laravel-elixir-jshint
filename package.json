@@ -1,0 +1,30 @@
+{
+  "name": "laravel-elixir-jshint",
+  "version": "0.1.0",
+  "description": "Laravel Elixir JSHint Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ponko2/laravel-elixir-jshint.git"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "jshint",
+    "gulp"
+  ],
+  "author": "Takahito Nakano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ponko2/laravel-elixir-jshint/issues"
+  },
+  "homepage": "https://github.com/ponko2/laravel-elixir-jshint",
+  "dependencies": {
+    "gulp-jshint": "^1.8.6",
+    "gulp-notify": "^2.0.0",
+    "jshint-stylish": "^1.0.0"
+  }
+}
