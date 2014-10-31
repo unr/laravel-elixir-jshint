@@ -14,7 +14,7 @@ elixir.extend("jshint", function (src, options) {
     notify.onError({
       title: "Laravel Elixir",
       subtitle: "JSHint failed.",
-      message: "Error: <%= error.message %>",
+      message: "<%= error.message %>",
       icon: __dirname + '/../laravel-elixir/icons/fail.png'
     })(err);
 
