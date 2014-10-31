@@ -1,12 +1,14 @@
-var gulp = require('gulp'),
+var gulp   = require('gulp'),
     jshint = require('gulp-jshint'),
     notify = require('gulp-notify'),
     elixir = require('laravel-elixir');
 
-elixir.extend("jshint", function (baseDir) {
-  baseDir = baseDir || 'public/js';
+elixir.extend("jshint", function (src, options) {
+  var config  = this,
+      baseDir = 'public/js';
 
-  var src = baseDir + '/**/*.js';
+  src     = config.buildGulpSrc(src, baseDir, '/**/*.js');
+  options = options || {};
 
   var onError = function (err) {
     notify.onError({
@@ -21,7 +23,7 @@ elixir.extend("jshint", function (baseDir) {
 
   gulp.task("jshint", function () {
     return gulp.src(src)
-      .pipe(jshint())
+      .pipe(jshint(options))
       .pipe(jshint.reporter('jshint-stylish'))
       .pipe(jshint.reporter('fail'))
       .on('error', onError)
