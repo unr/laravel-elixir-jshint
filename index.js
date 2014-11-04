@@ -4,10 +4,7 @@ var gulp   = require('gulp'),
     elixir = require('laravel-elixir');
 
 elixir.extend("jshint", function (src, options) {
-  var config  = this,
-      baseDir = 'public/js';
-
-  src     = config.buildGulpSrc(src, baseDir, '/**/*.js');
+  src     = src     || 'public/js/**/*.js';
   options = options || {};
 
   var onError = function (err) {
