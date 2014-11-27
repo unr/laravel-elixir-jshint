@@ -9,6 +9,8 @@ $ touch .jshintrc
 
 ## Usage
 
+### Example Gulpfile
+
 ```javascript
 var elixir = require('laravel-elixir');
 
@@ -17,4 +19,13 @@ require('laravel-elixir-jshint');
 elixir(function(mix) {
     mix.jshint();
 });
+```
+
+### Advanced example
+
+```javascript
+mix.jshint([
+  'public/js/**/*.js',
+  '!public/js/vendor/**/*.js'
+]);
 ```
