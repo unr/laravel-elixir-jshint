@@ -1,9 +1,11 @@
+'use strict';
+
 var gulp   = require('gulp'),
     jshint = require('gulp-jshint'),
     notify = require('gulp-notify'),
     elixir = require('laravel-elixir');
 
-elixir.extend("jshint", function (src, options) {
+elixir.extend('jshint', function (src, options) {
   src = src || [
     'public/js/**/*.js',
     '!public/js/vendor/**/*.js'
@@ -13,16 +15,16 @@ elixir.extend("jshint", function (src, options) {
 
   var onError = function (err) {
     notify.onError({
-      title: "Laravel Elixir",
-      subtitle: "JSHint failed.",
-      message: "<%= error.message %>",
+      title: 'Laravel Elixir',
+      subtitle: 'JSHint failed.',
+      message: '<%= error.message %>',
       icon: __dirname + '/../laravel-elixir/icons/fail.png'
     })(err);
 
     this.emit('end');
   };
 
-  gulp.task("jshint", function () {
+  gulp.task('jshint', function () {
     return gulp.src(src)
       .pipe(jshint(options))
       .pipe(jshint.reporter('jshint-stylish'))
@@ -36,7 +38,7 @@ elixir.extend("jshint", function (src, options) {
       }));
   });
 
-  this.registerWatcher("jshint", src);
+  this.registerWatcher('jshint', src);
 
-  return this.queueTask("jshint");
+  return this.queueTask('jshint');
 });
