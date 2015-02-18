@@ -1,9 +1,9 @@
 'use strict';
 
-var gulp   = require('gulp'),
-    jshint = require('gulp-jshint'),
-    notify = require('gulp-notify'),
-    elixir = require('laravel-elixir');
+var gulp   = require('gulp');
+var jshint = require('gulp-jshint');
+var notify = require('gulp-notify');
+var elixir = require('laravel-elixir');
 
 elixir.extend('jshint', function (src, options) {
   src = src || [
