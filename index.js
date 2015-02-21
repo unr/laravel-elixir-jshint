@@ -4,6 +4,7 @@ var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var notify = require('gulp-notify');
 var elixir = require('laravel-elixir');
+var path   = require('path');
 
 elixir.extend('jshint', function (src, options) {
   src = src || [
@@ -18,7 +19,7 @@ elixir.extend('jshint', function (src, options) {
       title: 'Laravel Elixir',
       subtitle: 'JSHint failed.',
       message: '<%= error.message %>',
-      icon: __dirname + '/../laravel-elixir/icons/fail.png'
+      icon: path.join(__dirname, '../laravel-elixir/icons/fail.png')
     })(err);
 
     this.emit('end');
@@ -34,7 +35,7 @@ elixir.extend('jshint', function (src, options) {
         title: 'Laravel Elixir',
         subtitle: 'JSHint passed.',
         message: ' ',
-        icon: __dirname + '/../laravel-elixir/icons/pass.png'
+        icon: path.join(__dirname, '../laravel-elixir/icons/pass.png')
       }));
   });
 
