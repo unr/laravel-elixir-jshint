@@ -6,7 +6,7 @@ var notify = require('gulp-notify');
 var elixir = require('laravel-elixir');
 var path   = require('path');
 
-elixir.extend('jshint', function (src, options) {
+elixir.extend('jshint', function(src, options) {
   src = src || [
     'public/js/**/*.js',
     '!public/js/vendor/**/*.js'
@@ -14,7 +14,7 @@ elixir.extend('jshint', function (src, options) {
 
   options = options || {};
 
-  var onError = function (err) {
+  var onError = function(err) {
     notify.onError({
       title: 'Laravel Elixir',
       subtitle: 'JSHint failed.',
@@ -25,7 +25,7 @@ elixir.extend('jshint', function (src, options) {
     this.emit('end');
   };
 
-  gulp.task('jshint', function () {
+  gulp.task('jshint', function() {
     return gulp.src(src)
       .pipe(jshint(options))
       .pipe(jshint.reporter('jshint-stylish'))
