@@ -34,8 +34,9 @@ elixir.extend('jshint', function (src, options) {
       .pipe(notify({
         title: 'Laravel Elixir',
         subtitle: 'JSHint passed.',
-        message: ' ',
-        icon: path.join(__dirname, '../laravel-elixir/icons/pass.png')
+        message: 'JSHint passed',
+        icon: path.join(__dirname, '../laravel-elixir/icons/pass.png'),
+        onLast: true
       }));
   });
 
