@@ -4,6 +4,7 @@ var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var notify = require('gulp-notify');
 var elixir = require('laravel-elixir');
+var Task   = elixir.Task;
 var path   = require('path');
 
 elixir.extend('jshint', function(src, options) {
@@ -25,7 +26,7 @@ elixir.extend('jshint', function(src, options) {
     this.emit('end');
   };
 
-  gulp.task('jshint', function() {
+  new Task('jshint', function() {
     return gulp.src(src)
       .pipe(jshint(options))
       .pipe(jshint.reporter('jshint-stylish'))
@@ -37,9 +38,6 @@ elixir.extend('jshint', function(src, options) {
         icon: path.join(__dirname, '../laravel-elixir/icons/pass.png'),
         onLast: true
       }));
-  });
-
-  this.registerWatcher('jshint', src);
-
-  return this.queueTask('jshint');
+  })
+  .watch(src);
 });
